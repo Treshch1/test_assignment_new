@@ -106,4 +106,6 @@ venv.bak/
 .mypy_cache/
 
 .idea
-
+.editorconfig
+.style.yapf
+..isort.cfg
