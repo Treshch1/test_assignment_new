@@ -1,6 +1,6 @@
 from django.urls import path
 
-from TestAssignment.apps.account.views import SignUpView, LoginView, LogoutView
+from test_assignment.apps.account.views import SignUpView, LoginView, LogoutView
 
 
 urlpatterns = [

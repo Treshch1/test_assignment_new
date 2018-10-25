@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse_lazy
 from django.views.generic import FormView
 
-from TestAssignment.apps.account.forms import CustomUserCreationForm
+from test_assignment.apps.account.forms import CustomUserCreationForm
 
 
 class SignUpView(FormView):
