@@ -3,10 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <title>Test Assignment</title>
+    <style>
+        body {background-color: #E5EBF0}
+        .tweet {
+          background-color: #FFFFFF;
+          padding: 10px;
+          margin: 0;
+          border-bottom: 1px solid #ACB0B4;
+        }
+        .header {
+          border-bottom: 1px solid #ACB0B4;
+          padding: 10px;
+          text-align: right;
+          background-color: #FFFFFF;
+        }
+        button {
+          background-color: #2887F1;
+          color: #FFFFFF;
+          border: none;
+          border-radius: 20px;
+          padding: 10px 20px;
+        }
+        form {
+          background-color: #E6F4FD;
+          padding: 10px
+        }
+    </style>
 </head>
 <body>
 
 <div class="header">
+
     {% if not user.is_authenticated %}
         <a href="{% url 'signup' %}">Sign up</a>
         <a href="{% url 'login' %}">Log in</a>
@@ -14,10 +41,30 @@
         <a href="{% url 'logout' %}">Log out</a>
       {{ user }}
     {% endif %}
+
 </div>
 
+<div class="content">
 {% block content %}
+
+      {% if user.is_authenticated %}
+          <form action="" method="post">
+              {% csrf_token %}
+              {{ form.as_p }}
+              <button type="submit">Tweet</button>
+          </form>
+      {% endif %}
+
+      {% for tweet in tweets %}
+          <div class="tweet">
+              <h5>{{ tweet.user }}</h5>
+              <h3>{{ tweet }}</h3>
+              <h5>{{ tweet.datetime_created }}</h5>
+          </div>
+      {% endfor %}
+
 {% endblock %}
+</div>
 
 </body>
 </html>
