@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    'test_assignment.apps.account'
+    'test_assignment.apps.account',
+    'test_assignment.apps.tweet',
 ]
 
 MIDDLEWARE = [

@@ -16,11 +16,9 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 
-from test_assignment.apps.account.views import TweetView
-
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', TweetView.as_view(), name='home'),
     path('account/', include('test_assignment.apps.account.urls')),
+    path('', include('test_assignment.apps.tweet.urls')),
 ]
