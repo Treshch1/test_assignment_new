@@ -8,7 +8,7 @@ from test_assignment.apps.account.models import User
 
 class Tweet(models.Model):
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='tweets')
     text = models.CharField(max_length=160)
     datetime_created = models.DateTimeField(auto_now_add=True)
 

@@ -8,6 +8,7 @@ class User(AbstractUser):
 
     email = models.EmailField(unique=True)
     username = models.CharField(max_length=150)
+    following = models.ManyToManyField('self', blank=True)
     tweets_counter = models.PositiveIntegerField(default=0)
 
     USERNAME_FIELD = 'email'

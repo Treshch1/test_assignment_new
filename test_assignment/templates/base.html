@@ -28,6 +28,17 @@
           background-color: #E6F4FD;
           padding: 10px
         }
+        .users {
+          border-bottom: 1px solid #ACB0B4;
+          padding: 10px;
+          text-align: right;
+          background-color: #FFFFFF;
+        }
+        .users button {
+          background-color: #FFFFFF;
+          color: #2887F1;
+          border: 1px solid #2887F1;
+        }
     </style>
 </head>
 <body>
@@ -47,6 +58,18 @@
 <div class="content">
 {% block content %}
 
+      {% if users %}
+          <div class="users">
+              Who to follow
+              {%  for userr in users %}
+                  <p>
+                    {{ userr.email }}
+                    <a href="{% url 'follow' userr.pk %}"><button>Follow</button></a>
+                  </p>
+              {% endfor %}
+          </div>
+      {% endif %}
+
       {% if user.is_authenticated %}
           <form action="" method="post">
               <p>Tweets: {{ counter }}</p>
@@ -58,8 +81,8 @@
 
       {% for tweet in tweets %}
           <div class="tweet">
-              <h5>{{ tweet.user }}</h5>
-              <h3>{{ tweet }}</h3>
+              <h5>{{ tweet.user__email }}</h5>
+              <h3>{{ tweet.text }}</h3>
               <h5>{{ tweet.datetime_created }}</h5>
           </div>
       {% endfor %}
