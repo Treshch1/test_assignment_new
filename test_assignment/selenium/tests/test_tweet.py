@@ -1,6 +1,5 @@
 import pytest
 from test_assignment.selenium.utils.urls import TWEET_URL, LOGIN_URL, SIGNUP_URL
-from time import sleep
 from ..page_object.Login import Login
 from ..page_object.SignUp import SignUp
 from ..page_object.TweetPage import TweetPage
