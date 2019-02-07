@@ -1,10 +1,7 @@
 import pytest
 from model_mommy import mommy
 from selenium.webdriver import Firefox, FirefoxOptions
-from django.conf import get_user_model
-
-
-User = get_user_model()
+from test_assignment.apps.account.models import User
 
 
 @pytest.fixture(scope='function')
@@ -23,6 +20,6 @@ def browser(live_server):
 @pytest.fixture
 def user(db):
 	user = mommy.make(User, email='example@example.com')
-	user.set_password('test1234')
+	user.set_password('1qaz2wsx0')
 	user.save()
 	return user

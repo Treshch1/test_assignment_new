@@ -1,29 +1,30 @@
-class Login(object):
+from test_assignment.selenium.utils.urls import LOGIN_URL
+
+class Login():
 	
 	username_xpath = "//*[@name='username']"
 	password_xpath = "//*[@name='password']"
-	login_xpath = "//button[@type='submit']"
-	warning_xpath = "//li"
+	login_xpath = "//button[.='Login']"
 
 
 	def __init__(self, browser):
 		self.browser = browser
 
 
-	def Username(self, username):
+	@property
+	def username(self):
 		username_field = self.browser.find_element_by_xpath(self.username_xpath)
-		username_field.clear()
-		username_field.send_keys(username)
+		return username_field
 
-	def Password(self, password):
+	@property
+	def password(self):
 		password_field = self.browser.find_element_by_xpath(self.password_xpath)
-		password_field.clear()
-		password_field.send_keys(password)
+		return password_field
 
-	def LogIn(self):
+	@property
+	def login_button(self):
 		login_button = self.browser.find_element_by_xpath(self.login_xpath)
-		login_button.click()
+		return login_button
 
-	def Warning(self):
-		warning = self.browser.find_element_by_xpath(self.warning_xpath)
-		return warning.text
+	def visit(self):
+		self.browser.get(LOGIN_URL)
