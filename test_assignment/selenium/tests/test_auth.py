@@ -5,10 +5,9 @@ from test_assignment.apps.account.models import User
 
 
 def test_login(browser, user):
-    
+
     login_page = LoginPage(browser)
     tweet_page = TweetPage(browser)
-    user = user()
 
     login_page.visit()
 
