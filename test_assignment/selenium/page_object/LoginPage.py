@@ -24,5 +24,3 @@ class LoginPage:
 
     def visit(self):
         self.browser.get(LOGIN_URL)
-
-    print('To commit')
